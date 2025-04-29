@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-bold {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+  }
+
+  select option {
+    @apply py-1 text-gray-800;
+    background-color: rgba(239, 239, 239, 0.4) !important;
+    backdrop-filter: blur(16px);
+  }
+
+  select:focus option:checked {
+    background-color: rgba(239, 239, 239, 0.6) !important;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-2 bg-gray-800 text-white rounded-[3rem] text-base font-bold hover:bg-gray-700 transition-colors md:w-auto w-full justify-center;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-[3rem] text-base font-bold hover:bg-gray-800/5 transition-colors md:w-auto w-full justify-center;
+  }
+  
+  .btn-tertiary {
+    @apply inline-flex items-center gap-2 px-2 py-2 text-gray-800 font-bold hover:text-gray-600 transition-colors md:w-auto w-full justify-center;
+  }
+
+  .company-name {
+    @apply font-semibold text-[13px];
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md;
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+.border-b-3 {
+  border-bottom-width: 3px;
+}
+
+.welcome-text {
+  font-size: 28px !important;
+  font-weight: 700;
+  line-height: 1.5 !important;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+@media (max-width: 768px) {
+  .welcome-text {
+    font-size: 28px !important;
+  }
+}
+
+/* Fix for iOS transparency */
+@supports (-webkit-touch-callout: none) {
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+}
+
+/* Fix for card appearance on iOS */
+.bg-white\/10 {
+  @supports (-webkit-touch-callout: none) {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+}
